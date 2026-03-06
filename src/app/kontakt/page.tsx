@@ -200,12 +200,12 @@ export default function KontaktPage() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         className="w-full px-4 py-3 border border-warm-200 rounded-sm focus:outline-none focus:border-brand transition-colors bg-warm-50"
-                        placeholder="vas@email.cz"
+                        placeholder={t("vas@email.cz", "your@email.com")}
                       />
                     </div>
                     <div>
                       <label className="block text-sm text-warm-500 mb-1">
-                        Telefon
+                        {t("Telefon", "Phone")}
                       </label>
                       <input
                         type="tel"

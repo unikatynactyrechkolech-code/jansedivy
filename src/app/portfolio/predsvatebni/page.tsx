@@ -14,7 +14,7 @@ export default function PredsvatebniPage() {
       <section className="relative h-[60vh] overflow-hidden">
         <Image
           src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/Svatebni-fotograf-praha_0747.jpg"
-          alt="Předsvatební focení Praha"
+          alt={t("Předsvatební focení Praha", "Pre-wedding shoot Prague")}
           fill
           className="object-cover object-[center_25%]"
           priority
@@ -67,7 +67,7 @@ export default function PredsvatebniPage() {
                 <div className="aspect-[2/3] overflow-hidden rounded-sm">
                   <Image
                     src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/DSCF8049-2-768x1152.jpg"
-                    alt="Předsvatební focení"
+                    alt={t("Předsvatební focení", "Pre-wedding shoot")}
                     width={400}
                     height={600}
                     className="object-cover w-full h-full"
@@ -77,7 +77,7 @@ export default function PredsvatebniPage() {
                 <div className="aspect-[2/3] overflow-hidden rounded-sm mt-8">
                   <Image
                     src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/Svatebni-fotograf-praha_0749.jpg"
-                    alt="Zásnuby Praha"
+                    alt={t("Zásnuby Praha", "Engagement Prague")}
                     width={400}
                     height={600}
                     className="object-cover w-full h-full"
@@ -146,8 +146,7 @@ export default function PredsvatebniPage() {
                   href="/kontakt"
                   className="inline-block mt-6 rounded-full bg-warm-800 text-white px-8 py-3 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
                 >
-                  Rezervovat
-                </Link>
+                  </Link>
               </div>
             </FadeIn>
           </div>
@@ -191,7 +190,7 @@ export default function PredsvatebniPage() {
               href="/kontakt"
               className="inline-block rounded-full border border-white/30 text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-white hover:text-warm-900 transition-all duration-500"
             >
-              Kontakt
+              {t("Kontakt", "Contact")}
             </Link>
           </FadeIn>
         </div>

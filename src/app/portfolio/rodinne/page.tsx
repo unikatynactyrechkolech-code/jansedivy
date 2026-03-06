@@ -64,7 +64,7 @@ export default function RodinnePage() {
       <section className="relative h-[60vh] overflow-hidden">
         <Image
           src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/DSCF7392-2-e1770273575547.jpg"
-          alt="Rodinné focení Praha"
+          alt={t("Rodinné focení Praha", "Family Photography Prague")}
           fill
           className="object-cover object-[center_25%]"
           priority
@@ -115,7 +115,7 @@ export default function RodinnePage() {
                   href="/kontakt"
                   className="inline-block rounded-full bg-warm-800 text-white px-8 py-3 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
                 >
-                  Kontakt
+                  {t("Kontakt", "Contact")}
                 </Link>
               </FadeIn>
             </div>
@@ -124,7 +124,7 @@ export default function RodinnePage() {
                 <div className="aspect-[2/3] overflow-hidden rounded-sm">
                   <Image
                     src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/i-z7HxR4v-X2.jpg"
-                    alt="Rodinné focení"
+                    alt={t("Rodinné focení", "Family photography")}
                     width={400}
                     height={600}
                     className="object-cover w-full h-full"
@@ -134,7 +134,7 @@ export default function RodinnePage() {
                 <div className="aspect-[2/3] overflow-hidden rounded-sm mt-8">
                   <Image
                     src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/Cesnekovi_2048-31-825x550-1-768x512.jpg"
-                    alt="Rodinné focení Praha"
+                    alt={t("Rodinné focení Praha", "Family photography Prague")}
                     width={400}
                     height={600}
                     className="object-cover w-full h-full"
@@ -190,7 +190,7 @@ export default function RodinnePage() {
                       href="/kontakt"
                       className="block text-center rounded-full bg-warm-800 text-white px-6 py-3 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
                     >
-                      Rezervovat
+                      {t("Rezervovat", "Book now")}
                     </Link>
                   </div>
                 </div>
@@ -205,9 +205,7 @@ export default function RodinnePage() {
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
             <blockquote className="font-serif text-xl md:text-2xl italic text-warm-700 leading-relaxed mb-6">
-              „Děkujeme za nádherné fotky! Úprava, barvy a styl fotek je top!
-              Dojaly nás a zároveň rozesmály. Pokud bychom si mohli vybrat
-              znovu, tak znovu a znovu tebe!"
+              „{t("Děkujeme za nádherné fotky! Úprava, barvy a styl fotek je top! Dojaly nás a zároveň rozesmály. Pokud bychom si mohli vybrat znovu, tak znovu a znovu tebe!", "Thank you for the gorgeous photos! The editing, colors and style are top! They moved us and made us laugh at the same time. If we could choose again, we'd choose you again and again!")}“
             </blockquote>
             <p className="text-warm-500 text-sm tracking-wider uppercase">
               — Martina
@@ -253,7 +251,7 @@ export default function RodinnePage() {
               href="/kontakt"
               className="inline-block rounded-full bg-warm-800 text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
             >
-              Kontakt
+              {t("Kontakt", "Contact")}
             </Link>
           </FadeIn>
         </div>

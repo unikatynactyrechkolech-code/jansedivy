@@ -5,34 +5,34 @@ import Link from "next/link";
 import { FadeIn, ParallaxImage } from "@/components/AnimatedElements";
 import { useLanguage } from "@/context/LanguageContext";
 
-const venues = [
-  { name: "Lake Como", location: "Itálie, Villa Geno", href: "https://www.jan-sedivy.com/svatba-lake-como-italie-svatebni-fotograf-jan-sedivy/" },
-  { name: "Zámek Niměřice", location: "Svatba Kateřiny & Václava", href: "https://www.jan-sedivy.com/svatba-zamek-nimerice-svatebni-fotograf-jan-sedivy/" },
-  { name: "Občanská plovárna", location: "Praha, Svatba Mariny & Berta", href: "https://www.jan-sedivy.com/en/vrtba-garden-prague-hotel-aria-wedding-photographer/" },
-  { name: "Letenský zámeček", location: "Praha, svatba Ivony & Samuela", href: "https://www.jan-sedivy.com/svatba-letensky-zamecek-praha-svatebni-fotograf-jan-sedivy/" },
-  { name: "Villa Richter", location: "Praha, svatební editorial", href: "https://www.jan-sedivy.com/svatba-villa-richter/" },
-  { name: "Zámek Ratměřice", location: "Oficiální fotograf", href: "https://www.jan-sedivy.com/svatba-zamek-ratmerice/" },
-  { name: "Artiséme Art Garden", location: "Praha, Vanda & David", href: "https://www.jan-sedivy.com/gallery-svatba-artiseme-praha/" },
-  { name: "Hotel Mandarin Oriental", location: "Praha, Veronika & Jiří", href: "https://www.jan-sedivy.com/gallery-hotel-mandarin-praha-svatba/" },
-  { name: "Žofín Garden", location: "Praha, Naty & Martin", href: "https://www.jan-sedivy.com/svatba-zofin-praha-natalie-a-martin-svatebni-fotograf-praha/" },
-  { name: "Zámek Bon Repos", location: "Stará Lysá, editorial", href: "https://www.jan-sedivy.com/svatba-bon-repos/" },
-];
-
-const reviews = [
-  { text: "Dokonale jsi vystihl atmosféru našeho dne!", author: "Anna a Jirka" },
-  { text: "Musel jsi snad létat, jinak není možné, že jsi toho tolik zachytil.", author: "Viki a Míra" },
-  { text: "Nejvíce se nám líbí to množství momentek, které jsi vyfotil.", author: "Anička a Břéťa" },
-  { text: "Jsi ideální fotograf pro stydlíny jako jsme my. Dokonalé fotky, přitom jsme o tobě na svatbě skoro nevěděli.", author: "Lenka a Viktor" },
-];
-
-const partners = [
-  { name: "Kvalitní fotky", href: "https://www.kvalitnifotky.cz/blog/jak-na-lepsi-portrety/" },
-  { name: "Pixin Gallery", href: "https://pixin.gallery/s-pixinem-je-predani-zakazky-zabava/" },
-  { name: "MILE Magazine", href: "https://milemagazine.co/blogs/photo-video/jan-sedivy-1" },
-];
-
 export default function AboutPage() {
   const { t } = useLanguage();
+
+  const venues = [
+    { name: "Lake Como", location: t("Itálie, Villa Geno", "Italy, Villa Geno"), href: "https://www.jan-sedivy.com/svatba-lake-como-italie-svatebni-fotograf-jan-sedivy/" },
+    { name: "Zámek Niměřice", location: t("Svatba Kateřiny & Václava", "Wedding of Kateřina & Václav"), href: "https://www.jan-sedivy.com/svatba-zamek-nimerice-svatebni-fotograf-jan-sedivy/" },
+    { name: t("Občanská plovárna", "Občanská Plovárna"), location: t("Praha, Svatba Mariny & Berta", "Prague, Wedding of Marina & Berto"), href: "https://www.jan-sedivy.com/en/vrtba-garden-prague-hotel-aria-wedding-photographer/" },
+    { name: "Letenský zámeček", location: t("Praha, svatba Ivony & Samuela", "Prague, Wedding of Ivona & Samuel"), href: "https://www.jan-sedivy.com/svatba-letensky-zamecek-praha-svatebni-fotograf-jan-sedivy/" },
+    { name: "Villa Richter", location: t("Praha, svatební editorial", "Prague, wedding editorial"), href: "https://www.jan-sedivy.com/svatba-villa-richter/" },
+    { name: "Zámek Ratměřice", location: t("Oficiální fotograf", "Official photographer"), href: "https://www.jan-sedivy.com/svatba-zamek-ratmerice/" },
+    { name: "Artisème Art Garden", location: t("Praha, Vanda & David", "Prague, Vanda & David"), href: "https://www.jan-sedivy.com/gallery-svatba-artiseme-praha/" },
+    { name: "Hotel Mandarin Oriental", location: t("Praha, Veronika & Jiří", "Prague, Veronika & Jiří"), href: "https://www.jan-sedivy.com/gallery-hotel-mandarin-praha-svatba/" },
+    { name: "Žofín Garden", location: t("Praha, Naty & Martin", "Prague, Naty & Martin"), href: "https://www.jan-sedivy.com/svatba-zofin-praha-natalie-a-martin-svatebni-fotograf-praha/" },
+    { name: "Zámek Bon Repos", location: t("Stará Lysá, editorial", "Stará Lysá, editorial"), href: "https://www.jan-sedivy.com/svatba-bon-repos/" },
+  ];
+
+  const reviews = [
+    { text: t("Dokonale jsi vystihl atmosféru našeho dne!", "You perfectly captured the atmosphere of our day!"), author: "Anna a Jirka" },
+    { text: t("Musel jsi snad létat, jinak není možné, že jsi toho tolik zachytil.", "You must have been flying, otherwise it's impossible you captured so much."), author: "Viki a Míra" },
+    { text: t("Nejvíce se nám líbí to množství momentek, které jsi vyfotil.", "What we love most is the number of candid moments you captured."), author: "Anička a Břéťa" },
+    { text: t("Jsi ideální fotograf pro stydlíny jako jsme my. Dokonalé fotky, přitom jsme o tobě na svatbě skoro nevěděli.", "You're the ideal photographer for shy people like us. Perfect photos, yet we barely noticed you at the wedding."), author: "Lenka a Viktor" },
+  ];
+
+  const partners = [
+    { name: t("Kvalitní fotky", "Quality Photos"), href: "https://www.kvalitnifotky.cz/blog/jak-na-lepsi-portrety/" },
+    { name: "Pixin Gallery", href: "https://pixin.gallery/s-pixinem-je-predani-zakazky-zabava/" },
+    { name: "MILE Magazine", href: "https://milemagazine.co/blogs/photo-video/jan-sedivy-1" },
+  ];
 
   return (
     <>
@@ -187,9 +187,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <blockquote className="font-serif text-xl md:text-3xl italic leading-relaxed text-warm-200">
-              „Zachytil jsi všechny důležité chvíle, emoce i momentky. Fotky
-              nemají chybu! Úžasné. Díky za skvělé vzpomínky na jeden z našich
-              nejdůležitějších dní. Máme radost, že jsme si vybrali právě Tebe."
+              „{t("Zachytil jsi všechny důležité chvíle, emoce i momentky. Fotky nemají chybu! Úžasné. Díky za skvělé vzpomínky na jeden z našich nejdůležitějších dní. Máme radost, že jsme si vybrali právě Tebe.", "You captured all the important moments, emotions and candid shots. The photos are flawless! Amazing. Thank you for wonderful memories of one of our most important days. We're so glad we chose you.")}“
             </blockquote>
           </FadeIn>
           <FadeIn delay={0.2}>

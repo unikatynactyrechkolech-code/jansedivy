@@ -58,7 +58,7 @@ export default function AnalogPage() {
         >
           <Image
             src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/1svatba_zamek_ratmerice-1536x1018.webp"
-            alt="Svatební focení na film"
+            alt={t("Svatební focení na film", "Wedding photography on film")}
             fill
             className="object-cover object-[center_25%] opacity-70"
             priority
@@ -119,7 +119,7 @@ export default function AnalogPage() {
               <div className="aspect-[3/4] rounded-sm overflow-hidden">
                 <Image
                   src="https://www.jan-sedivy.com/wp-content/uploads/2026/01/ezgif.com-optimize.gif"
-                  alt="Focení svatby na analog"
+                  alt={t("Focení svatby na analog", "Wedding photography on film")}
                   width={500}
                   height={667}
                   className="object-cover w-full h-full"
@@ -149,7 +149,7 @@ export default function AnalogPage() {
                 >
                   <Image
                     src={img}
-                    alt={`Analogová fotografie ${i + 1}`}
+                    alt={`${t("Analogová fotografie", "Film photography")} ${i + 1}`}
                     width={400}
                     height={600}
                     className="w-full object-cover"

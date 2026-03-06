@@ -100,7 +100,7 @@ export default function Home() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="font-serif text-5xl md:text-7xl lg:text-8xl mb-4 leading-tight text-shadow-hero"
           >
-            Vaše svatba
+            {t("Vaše svatba", "Your Wedding")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -108,7 +108,7 @@ export default function Home() {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="font-serif text-2xl md:text-3xl text-white/90 italic mb-2 text-shadow-hero"
           >
-            elegantně & dokumentárně
+            {t("elegantně & dokumentárně", "elegant & documentary")}
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
@@ -120,7 +120,7 @@ export default function Home() {
               href="/kontakt"
               className="rounded-full bg-black/80 backdrop-blur-sm text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-black transition-all duration-500"
             >
-              Mám zájem
+              {t("Mám zájem", "I'm interested")}
             </Link>
           </motion.div>
 
@@ -170,7 +170,7 @@ export default function Home() {
             <div>
               <FadeIn>
                 <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-                  Slibuji vám
+                  {t("Slibuji vám", "My promise")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.1}>
@@ -194,7 +194,7 @@ export default function Home() {
                   href="/o-mne"
                   className="inline-flex items-center gap-2 text-sm tracking-wider uppercase text-warm-700 hover:text-brand transition-colors group"
                 >
-                  Chci se dozvědět víc
+                  {t("Chci se dozvědět víc", "Learn more")}
                   <span className="group-hover:translate-x-1 transition-transform">
                     →
                   </span>
@@ -315,7 +315,7 @@ export default function Home() {
             <div>
               <FadeIn>
                 <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-                  Kdo stojí za objektivem?
+                  {t("Kdo stojí za objektivem?", "Who's behind the lens?")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.1}>
@@ -341,7 +341,7 @@ export default function Home() {
                     href="/o-mne"
                     className="rounded-full bg-warm-800 text-white px-8 py-3 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors duration-300"
                   >
-                    Více o mně
+                    {t("Více o mně", "More about me")}
                   </Link>
                   <Link
                     href="/kontakt"
@@ -363,7 +363,7 @@ export default function Home() {
             <div>
               <FadeIn>
                 <p className="text-sm tracking-[0.3em] uppercase text-warm-400 mb-4">
-                  Chcete i analogové fotky?
+                  {t("Chcete i analogové fotky?", "Want film photos too?")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.1}>
@@ -383,7 +383,7 @@ export default function Home() {
                   href="/analog"
                   className="inline-flex items-center gap-2 text-sm tracking-wider uppercase text-warm-300 hover:text-white transition-colors group"
                 >
-                  Více o analogu
+                  {t("Více o analogu", "More about film")}
                   <span className="group-hover:translate-x-1 transition-transform">
                     →
                   </span>
@@ -406,7 +406,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-8">
-              Milá slova
+              {t("Milá slova", "Kind words")}
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
