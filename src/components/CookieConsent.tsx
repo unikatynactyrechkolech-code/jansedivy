@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -56,12 +58,13 @@ export default function CookieConsent() {
               {/* Text */}
               <div className="flex-1">
                 <h3 className="font-serif text-lg text-warm-900 mb-1">
-                  Cookies & soukromí
+                  {t("Cookies & soukromí", "Cookies & Privacy")}
                 </h3>
                 <p className="text-warm-600 text-sm leading-relaxed">
-                  Tento web používá cookies pro zajištění nejlepšího zážitku a
-                  analýzu návštěvnosti. Pokračováním souhlasíte s jejich
-                  používáním.
+                  {t(
+                    "Tento web používá cookies pro zajištění nejlepšího zážitku a analýzu návštěvnosti. Pokračováním souhlasíte s jejich používáním.",
+                    "This website uses cookies to ensure the best experience and analyze traffic. By continuing, you agree to their use."
+                  )}
                 </p>
               </div>
 
@@ -71,13 +74,13 @@ export default function CookieConsent() {
                   onClick={handleDecline}
                   className="flex-1 md:flex-none rounded-full border border-warm-300 text-warm-600 px-5 py-2.5 text-xs tracking-wider uppercase hover:bg-warm-100 transition-colors duration-300"
                 >
-                  Odmítnout
+                  {t("Odmítnout", "Decline")}
                 </button>
                 <button
                   onClick={handleAccept}
                   className="flex-1 md:flex-none rounded-full bg-warm-900 text-white px-6 py-2.5 text-xs tracking-wider uppercase hover:bg-warm-800 transition-colors duration-300"
                 >
-                  Přijmout vše
+                  {t("Přijmout vše", "Accept All")}
                 </button>
               </div>
             </div>

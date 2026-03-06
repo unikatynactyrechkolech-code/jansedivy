@@ -3,15 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
-const footerLinks = [
-  { href: "/", label: "Domů" },
-  { href: "/o-mne", label: "O mně" },
-  { href: "/portfolio/svatebni", label: "Portfolio" },
-  { href: "/analog", label: "Analog" },
-  { href: "/blog", label: "Blog" },
-  { href: "/kontakt", label: "Kontakt" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const socialLinks = [
   {
@@ -44,6 +36,17 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const footerLinks = [
+    { href: "/", label: t("Domů", "Home") },
+    { href: "/o-mne", label: t("O mně", "About") },
+    { href: "/portfolio/svatebni", label: "Portfolio" },
+    { href: "/analog", label: t("Analog", "Film") },
+    { href: "/blog", label: "Blog" },
+    { href: "/kontakt", label: t("Kontakt", "Contact") },
+  ];
+
   return (
     <footer className="bg-warm-900 text-white">
       {/* CTA Section */}
@@ -56,16 +59,16 @@ export default function Footer() {
             transition={{ duration: 0.8 }}
           >
             <p className="text-warm-400 text-sm tracking-[0.3em] uppercase mb-4">
-              Jsme na podobné vlně?
+              {t("Jsme na podobné vlně?", "Are we on the same wavelength?")}
             </p>
             <h2 className="font-serif text-4xl md:text-5xl mb-8">
-              Pojďme do toho
+              {t("Pojďme do toho", "Let's do this")}
             </h2>
             <Link
               href="/kontakt"
               className="inline-block rounded-full border border-white/30 text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-white hover:text-warm-900 transition-all duration-500"
             >
-              Kontakt
+              {t("Kontakt", "Contact")}
             </Link>
           </motion.div>
         </div>
@@ -88,7 +91,7 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="font-serif text-xl">Jan Šedivý</h3>
-                <p className="text-warm-400 text-sm">Svatební fotograf Praha</p>
+                <p className="text-warm-400 text-sm">{t("Svatební fotograf Praha", "Wedding Photographer Prague")}</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -110,7 +113,7 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h4 className="text-sm tracking-[0.2em] uppercase text-warm-400 mb-6">
-              Navigace
+              {t("Navigace", "Navigation")}
             </h4>
             <nav className="flex flex-col gap-3">
               {footerLinks.map((link) => (
@@ -128,7 +131,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-sm tracking-[0.2em] uppercase text-warm-400 mb-6">
-              Kontakt
+              {t("Kontakt", "Contact")}
             </h4>
             <div className="space-y-3 text-sm text-warm-300">
               <p>
@@ -147,14 +150,6 @@ export default function Footer() {
                   info@jan-sedivy.com
                 </a>
               </p>
-              <p className="pt-4">
-                <Link
-                  href="/en"
-                  className="text-warm-400 hover:text-white transition-colors text-xs tracking-wider uppercase"
-                >
-                  English Version →
-                </Link>
-              </p>
             </div>
           </div>
         </div>
@@ -168,7 +163,7 @@ export default function Footer() {
             href="/ochrana-osobnich-udaju"
             className="text-warm-500 hover:text-warm-300 text-xs transition-colors"
           >
-            Ochrana osobních údajů
+            {t("Ochrana osobních údajů", "Privacy Policy")}
           </Link>
         </div>
       </div>

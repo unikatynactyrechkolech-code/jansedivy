@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   FadeIn,
   ParallaxImage,
@@ -20,21 +21,24 @@ const heroImages = [
   "https://www.jan-sedivy.com/wp-content/uploads/2025/11/DSCF5498-768x512.jpg",
 ];
 
-const portfolioCategories = [
+const portfolioCategoriesData = [
   {
-    title: "Svatební",
+    titleCs: "Svatební",
+    titleEn: "Weddings",
     href: "/portfolio/svatebni",
     image:
       "https://www.jan-sedivy.com/wp-content/uploads/2025/12/DSCF5671-768x1151.jpg",
   },
   {
-    title: "Předsvatební",
+    titleCs: "Předsvatební",
+    titleEn: "Pre-wedding",
     href: "/portfolio/predsvatebni",
     image:
       "https://www.jan-sedivy.com/wp-content/uploads/2026/02/DSCF8049-2-768x1152.jpg",
   },
   {
-    title: "Rodinné",
+    titleCs: "Rodinné",
+    titleEn: "Family",
     href: "/portfolio/rodinne",
     image:
       "https://www.jan-sedivy.com/wp-content/uploads/2026/02/i-z7HxR4v-X2.jpg",
@@ -50,6 +54,7 @@ const galleryImages = [
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
+  const { t } = useLanguage();
 
   const nextImage = useCallback(() => {
     setCurrentImage((prev) => (prev + 1) % heroImages.length);
@@ -76,7 +81,7 @@ export default function Home() {
           >
             <Image
               src={heroImages[currentImage]}
-              alt="Svatební fotograf Praha"
+              alt={t("Svatební fotograf Praha", "Wedding Photographer Prague")}
               fill
               className="object-cover object-[center_25%]"
               priority
@@ -135,7 +140,7 @@ export default function Home() {
                     ? "bg-white w-6"
                     : "bg-white/40 hover:bg-white/70"
                 }`}
-                aria-label={`Obrázek ${i + 1}`}
+                aria-label={`${t("Obrázek", "Image")} ${i + 1}`}
               />
             ))}
           </motion.div>
@@ -170,23 +175,18 @@ export default function Home() {
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">
-                  Že fotky ode mě budou působit{" "}
-                  <span className="italic text-brand">naprosto přirozeně</span>
+                  {t("Že fotky ode mě budou působit", "Your photos will feel")}{" "}
+                  <span className="italic text-brand">{t("naprosto přirozeně", "completely natural")}</span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <p className="text-warm-600 leading-relaxed mb-6">
-                  Jestli si mě vyberete jako svého svatebního fotografa, zapadnu
-                  mezi svatebčany tak, jako bych byl jeden z vás. Fotky vám
-                  vykouzlí úsměv nejen při předání, ale hlavně po letech.
+                  {t("Jestli si mě vyberete jako svého svatebního fotografa, zapadnu mezi svatebčany tak, jako bych byl jeden z vás. Fotky vám vykouzlí úsměv nejen při předání, ale hlavně po letech.", "If you choose me as your wedding photographer, I will blend in with your guests as if I were one of you. Your photos will bring a smile not only when delivered, but especially years later.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.3}>
                 <p className="text-warm-600 leading-relaxed mb-8">
-                  V den svatby o mně nebudete skoro vědět. Nenápadně zachytím
-                  atmosféru vašeho dne. Za řadu let jsem vyfotil přes sto svateb
-                  a vím, kdy přijde exploze emocí – ten nejlepší okamžik pro
-                  zmáčknutí spouště.
+                  {t("V den svatby o mně nebudete skoro vědět. Nenápadně zachytím atmosféru vašeho dne. Za řadu let jsem vyfotil přes sto svateb a vím, kdy přijde exploze emocí – ten nejlepší okamžik pro zmáčknutí spouště.", "On your wedding day, you will barely notice me. I will discreetly capture the atmosphere of your day. Over the years, I have photographed over a hundred weddings and I know when the explosion of emotions is coming – the best moment to press the shutter.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.4}>
@@ -205,13 +205,13 @@ export default function Home() {
               <div className="relative">
                 <ParallaxImage
                   src="https://www.jan-sedivy.com/wp-content/uploads/2025/11/DSCF5498-768x512.jpg"
-                  alt="Svatební fotograf Praha"
+                  alt={t("Svatební fotograf Praha", "Wedding Photographer Prague")}
                   className="aspect-[4/3] rounded-sm"
                 />
                 <div className="absolute -bottom-6 -left-6 w-48 h-64 rounded-sm overflow-hidden shadow-2xl hidden md:block">
                   <Image
                     src="https://www.jan-sedivy.com/wp-content/uploads/2024/11/DSCF4074-e1732481826771-768x1152.jpg"
-                    alt="Svatba detail"
+                    alt={t("Svatba detail", "Wedding detail")}
                     fill
                     className="object-cover object-top"
                     unoptimized
@@ -235,7 +235,7 @@ export default function Home() {
               >
                 <Image
                   src={img}
-                  alt={`Svatební fotografie ${i + 1}`}
+                  alt={`${t("Svatební fotografie", "Wedding photo")} ${i + 1}`}
                   width={320}
                   height={480}
                   className="w-full h-full object-cover object-top"
@@ -258,19 +258,19 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="font-serif text-4xl md:text-5xl">
-                Moje práce
+                {t("Moje práce", "My Work")}
               </h2>
             </FadeIn>
           </div>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {portfolioCategories.map((cat) => (
-              <StaggerItem key={cat.title}>
+            {portfolioCategoriesData.map((cat) => (
+              <StaggerItem key={cat.titleCs}>
                 <Link href={cat.href} className="group block">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
                     <Image
                       src={cat.image}
-                      alt={cat.title}
+                      alt={t(cat.titleCs, cat.titleEn)}
                       fill
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       unoptimized
@@ -279,10 +279,10 @@ export default function Home() {
                     <div className="absolute inset-0 flex items-end p-8">
                       <div>
                         <h3 className="font-serif text-2xl text-white mb-1">
-                          {cat.title}
+                          {t(cat.titleCs, cat.titleEn)}
                         </h3>
                         <span className="text-white/70 text-sm tracking-wider uppercase group-hover:text-white transition-colors">
-                          Zobrazit →
+                          {t("Zobrazit →", "View →")}
                         </span>
                       </div>
                     </div>
@@ -320,22 +320,19 @@ export default function Home() {
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="font-serif text-3xl md:text-5xl leading-tight mb-6">
-                  Ahoj,
+                  {t("Ahoj,", "Hello,")}
                   <br />
-                  jsem Honza
+                  {t("jsem Honza", "I'm Honza")}
                 </h2>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <p className="text-warm-600 leading-relaxed mb-6">
-                  Miluji umění, sport, ale ze všeho nejvíc svého syna Toníka.
-                  Mám taky velké štěstí – moje práce je pro mě zábava.
+                  {t("Miluji umění, sport, ale ze všeho nejvíc svého syna Toníka. Mám taky velké štěstí – moje práce je pro mě zábava.", "I love art, sports, but most of all my son Toník. I'm also very lucky – my work is pure joy for me.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.3}>
                 <p className="text-warm-600 leading-relaxed mb-8">
-                  Chcete být na svatbě sví a mít tam fotografa, se kterým si
-                  sednete? Někoho, kdo vás nebude tlačit do strojených póz, ale
-                  naopak vás před foťákem uvolní? Pak jste na správné adrese.
+                  {t("Chcete být na svatbě sví a mít tam fotografa, se kterým si sednete? Někoho, kdo vás nebude tlačit do strojených póz, ale naopak vás před foťákem uvolní? Pak jste na správné adrese.", "Do you want to be yourselves at your wedding and have a photographer you click with? Someone who won\'t push you into stiff poses but instead helps you relax in front of the camera? Then you\'re in the right place.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.4}>
@@ -350,7 +347,7 @@ export default function Home() {
                     href="/kontakt"
                     className="rounded-full border border-warm-300 text-warm-700 px-8 py-3 text-sm tracking-wider uppercase hover:bg-warm-800 hover:text-white hover:border-warm-800 transition-all duration-300"
                   >
-                    Kontakt
+                    {t("Kontakt", "Contact")}
                   </Link>
                 </div>
               </FadeIn>
@@ -371,16 +368,14 @@ export default function Home() {
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="font-serif text-3xl md:text-5xl leading-tight mb-6">
-                  Filmový
+                  {t("Filmový", "Film")}
                   <br />
-                  <span className="italic">vibe</span>
+                  <span className="italic">{t("vibe", "vibes")}</span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <p className="text-warm-300 leading-relaxed mb-6">
-                  Na film zachytím vaše vzpomínky s ještě větší nostalgií.
-                  Svatby focené na analog nejsou jen aktuální trend – film má své
-                  nezaměnitelné kouzlo, které digitál nemůže nahradit.
+                  {t("Na film zachytím vaše vzpomínky s ještě větší nostalgií. Svatby focené na analog nejsou jen aktuální trend – film má své nezaměnitelné kouzlo, které digitál nemůže nahradit.", "On film, I will capture your memories with even more nostalgia. Film weddings are not just a current trend – film has its own irreplaceable magic that digital cannot replicate.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.3}>
@@ -398,7 +393,7 @@ export default function Home() {
             <FadeIn direction="left" delay={0.2}>
               <ParallaxImage
                 src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/1svatba_zamek_ratmerice-1536x1018.webp"
-                alt="Analogová svatební fotografie"
+                alt={t("Analogová svatební fotografie", "Analog wedding photography")}
                 className="aspect-[3/2] rounded-sm"
               />
             </FadeIn>
@@ -420,10 +415,7 @@ export default function Home() {
                 „
               </span>
               <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl text-warm-700 leading-relaxed italic px-8">
-                Fotky jsou absolutně přenádherné. Všichni jsou dojatí, včetně
-                nás, to jsem přesně chtěla! A nejlepší bylo, že jsme o tobě
-                vůbec nevěděli a ty nejhezčí fotky ze všech jsou opravdu
-                momentky.
+                {t("Fotky jsou absolutně přenádherné. Všichni jsou dojatí, včetně nás, to jsem přesně chtěla! A nejlepší bylo, že jsme o tobě vůbec nevěděli a ty nejhezčí fotky ze všech jsou opravdu momentky.", "The photos are absolutely gorgeous. Everyone is moved, including us, that's exactly what I wanted! And the best part was that we didn't even know about you and the most beautiful photos of all are truly candid moments.")}
               </blockquote>
             </div>
           </FadeIn>

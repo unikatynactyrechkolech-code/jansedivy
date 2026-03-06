@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/AnimatedElements";
+import { useLanguage } from "@/context/LanguageContext";
 
 const filmImages = [
   "https://www.jan-sedivy.com/wp-content/uploads/2026/01/img_11.jpg",
@@ -25,22 +26,26 @@ const filmImages = [
   "https://www.jan-sedivy.com/wp-content/uploads/2026/01/img_34.jpg",
 ];
 
-const faq = [
-  {
-    q: "Jak fotky na analog objednáme?",
-    a: "Možnost analogových fotek většinou probíráme na předsvatební schůzce nebo při výběru balíčku. Ale kdykoliv před svatbou mi můžete říct, že o film máte zájem.",
-  },
-  {
-    q: "Kolik ruliček doporučuješ?",
-    a: "Záleží na tom, kolik analogových fotek chcete. Každá rulička má 36 snímků. Na většinu svateb doporučuji 2-4 ruličky.",
-  },
-  {
-    q: "Jak se pak k fotkám z analogu dostaneme?",
-    a: "Filmy nechám vyvolat v profesionální laboratoři a skenovat ve vysokém rozlišení. Hotové fotky dostanete v on-line galerii spolu s digitálními.",
-  },
-];
+
 
 export default function AnalogPage() {
+  const { t } = useLanguage();
+
+  const faq = [
+    {
+      q: t("Jak fotky na analog objednáme?", "How do we order film photos?"),
+      a: t("Možnost analogových fotek většinou probíráme na předsvatební schůzce nebo při výběru balíčku. Ale kdykoliv před svatbou mi můžete říct, že o film máte zájem.", "We usually discuss film photos at the pre-wedding meeting or when choosing a package. But anytime before the wedding, you can let me know you're interested in film."),
+    },
+    {
+      q: t("Kolik ruliček doporučuješ?", "How many rolls do you recommend?"),
+      a: t("Záleží na tom, kolik analogových fotek chcete. Každá rulička má 36 snímků. Na většinu svateb doporučuji 2-4 ruličky.", "It depends on how many film photos you want. Each roll has 36 frames. For most weddings, I recommend 2-4 rolls."),
+    },
+    {
+      q: t("Jak se pak k fotkám z analogu dostaneme?", "How do we get the film photos?"),
+      a: t("Filmy nechám vyvolat v profesionální laboratoři a skenovat ve vysokém rozlišení. Hotové fotky dostanete v on-line galerii spolu s digitálními.", "I have the films developed at a professional lab and scanned in high resolution. You'll receive the finished photos in an online gallery along with the digital ones."),
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -64,19 +69,19 @@ export default function AnalogPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-6">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-warm-300 mb-4 text-shadow-sm">
-              Proč analog?
+              {t("Proč analog?", "Why film?")}
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <h1 className="font-serif text-5xl md:text-7xl leading-tight text-shadow-hero">
-              Vítejte v zrnitém
+              {t("Vítejte v zrnitém", "Welcome to the grainy")}
               <br />
-              <span className="italic">světě</span>
+              <span className="italic">{t("světě", "world")}</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.4}>
             <p className="mt-6 text-warm-300 max-w-xl leading-relaxed">
-              Fotím i na film
+              {t("Fotím i na film", "I also shoot on film")}
             </p>
           </FadeIn>
         </div>
@@ -89,29 +94,24 @@ export default function AnalogPage() {
             <div>
               <FadeIn>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-6">
-                  Digitál je přesný.
+                  {t("Digitál je přesný.", "Digital is precise.")}
                   <br />
-                  <span className="italic text-brand">Analog je osobní.</span>
+                  <span className="italic text-brand">{t("Analog je osobní.", "Film is personal.")}</span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <p className="text-warm-600 leading-relaxed mb-6">
-                  Svatby focené na analog nejsou jen aktuální trend. Po více než
-                  dvaceti letech éry digitálních foťáků se ukazuje, že film má
-                  své nezaměnitelné kouzlo, které digitál nemůže nahradit.
+                  {t("Svatby focené na analog nejsou jen aktuální trend. Po více než dvaceti letech éry digitálních foťáků se ukazuje, že film má své nezaměnitelné kouzlo, které digitál nemůže nahradit.", "Film weddings are not just a trend. After more than twenty years of digital cameras, it turns out that film has an irreplaceable charm that digital cannot replicate.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <p className="text-warm-600 leading-relaxed mb-6">
-                  Digitální foťák umožní vyfotit neomezené množství fotek s
-                  dokonalým výsledkem. Film oproti tomu nabízí ještě větší
-                  autenticitu a půvabnou nedokonalost. Je opravdový, umělecký a
-                  má svůj specifický vibe.
+                  {t("Digitální foťák umožní vyfotit neomezené množství fotek s dokonalým výsledkem. Film oproti tomu nabízí ještě větší autenticitu a půvabnou nedokonalost. Je opravdový, umělecký a má svůj specifický vibe.", "A digital camera allows unlimited photos with perfect results. Film, on the other hand, offers even more authenticity and charming imperfection. It is real, artistic, and has its own specific vibe.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.3}>
                 <p className="text-warm-600 leading-relaxed">
-                  Analog si na svatbě šetřím jen na to nejlepší.
+                  {t("Analog si na svatbě šetřím jen na to nejlepší.", "I save film only for the very best moments at weddings.")}
                 </p>
               </FadeIn>
             </div>
@@ -136,7 +136,7 @@ export default function AnalogPage() {
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl text-white text-center mb-16">
-              Galerie z analogu
+              {t("Galerie z analogu", "Film Gallery")}
             </h2>
           </FadeIn>
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
@@ -167,9 +167,9 @@ export default function AnalogPage() {
         <div className="max-w-3xl mx-auto">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl text-center mb-4">
-              Chcete dát svým fotkám další rozměr?
+              {t("Chcete dát svým fotkám další rozměr?", "Want to add another dimension to your photos?")}
             </h2>
-            <p className="text-center text-warm-500 mb-12">Stačí říct</p>
+            <p className="text-center text-warm-500 mb-12">{t("Stačí říct", "Just say the word")}</p>
           </FadeIn>
           <div className="space-y-6">
             {faq.map((item, i) => (
@@ -191,13 +191,13 @@ export default function AnalogPage() {
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
             <h2 className="font-serif text-4xl md:text-5xl mb-8">
-              Jdeme do toho?
+              {t("Jdeme do toho?", "Shall we do this?")}
             </h2>
             <Link
               href="/kontakt"
               className="inline-block rounded-full bg-warm-800 text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
             >
-              Napište mi
+              {t("Napište mi", "Write me")}
             </Link>
           </FadeIn>
         </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/AnimatedElements";
+import { useLanguage } from "@/context/LanguageContext";
 
 const blogPosts = [
   {
@@ -79,9 +80,13 @@ const blogPosts = [
   },
 ];
 
-const categories = ["Vše", "Svatební", "Předsvatební", "Editorial", "Rodinné", "Portrétní"];
+
 
 export default function BlogPage() {
+  const { t } = useLanguage();
+
+  const categories = [t("Vše", "All"), t("Svatební", "Wedding"), t("Předsvatební", "Pre-wedding"), t("Editorial", "Editorial"), t("Rodinné", "Family"), t("Portrétní", "Portrait")];
+
   return (
     <>
       {/* Hero */}
@@ -89,12 +94,12 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto text-center">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-              Blog svatebního fotografa
+              {t("Blog svatebního fotografa", "Wedding photographer blog")}
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <h1 className="font-serif text-5xl md:text-7xl mb-6">
-              O co se s vámi chci podělit
+              {t("O co se s vámi chci podělit", "What I want to share with you")}
             </h1>
           </FadeIn>
           {/* Category filter */}
@@ -137,7 +142,7 @@ export default function BlogPage() {
                         {post.excerpt}
                       </p>
                       <span className="inline-flex items-center gap-1 mt-4 text-sm text-warm-600 group-hover:text-brand transition-colors">
-                        Číst dál
+                        {t("Číst dál", "Read more")}
                         <span className="group-hover:translate-x-1 transition-transform">
                           →
                         </span>

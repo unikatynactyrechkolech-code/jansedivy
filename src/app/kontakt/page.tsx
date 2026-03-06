@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/AnimatedElements";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function KontaktPage() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function KontaktPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ export default function KontaktPage() {
       <section className="relative h-[50vh] overflow-hidden">
         <Image
           src="https://www.jan-sedivy.com/wp-content/uploads/2025/11/DSCF1415-scaled.jpg"
-          alt="Kontakt"
+          alt={t("Kontakt", "Contact")}
           fill
           className="object-cover object-[center_25%]"
           priority
@@ -38,14 +40,14 @@ export default function KontaktPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-6">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-white/80 mb-4 text-shadow-sm">
-              Napište mi
+              {t("Napište mi", "Write to me")}
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <h1 className="font-serif text-4xl md:text-6xl leading-tight text-shadow-hero">
-              A vytvoříme spolu
+              {t("A vytvoříme spolu", "And together we'll create")}
               <br />
-              <span className="italic">něco krásného</span>
+              <span className="italic">{t("něco krásného", "something beautiful")}</span>
             </h1>
           </FadeIn>
         </div>
@@ -59,17 +61,16 @@ export default function KontaktPage() {
             <div>
               <FadeIn>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-6">
-                  Autenticky,
+                  {t("Autenticky,", "Authentic,")}
                   <br />
-                  dokumentárně,
+                  {t("dokumentárně,", "documentary,")}
                   <br />
-                  <span className="italic text-brand">nadčasově</span>
+                  <span className="italic text-brand">{t("nadčasově", "timeless")}</span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <p className="text-warm-600 leading-relaxed mb-8">
-                  Rád s vámi zajdu na kávu, abychom vše probrali osobně. Napište
-                  mi a ozveme se zpět.
+                  {t("Rád s vámi zajdu na kávu, abychom vše probrali osobně. Napište mi a ozveme se zpět.", "I'd love to grab a coffee with you to discuss everything in person. Write me and I'll get back to you.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.2}>
@@ -87,7 +88,7 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <p className="text-sm tracking-wider uppercase text-warm-500 mb-1">
-                      Telefon
+                      {t("Telefon", "Phone")}
                     </p>
                     <a
                       href="tel:+420607586833"
@@ -98,7 +99,7 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <p className="text-sm tracking-wider uppercase text-warm-500 mb-1">
-                      Sociální sítě
+                      {t("Sociální sítě", "Social Media")}
                     </p>
                     <div className="flex gap-4">
                       <a
@@ -146,7 +147,7 @@ export default function KontaktPage() {
                     <div>
                       <p className="font-serif text-lg">Jan Šedivý</p>
                       <p className="text-sm text-warm-500">
-                        Svatební fotograf Praha
+                        {t("Svatební fotograf Praha", "Wedding Photographer Prague")}
                       </p>
                     </div>
                   </div>
@@ -157,7 +158,7 @@ export default function KontaktPage() {
             {/* Right side – form */}
             <FadeIn direction="left" delay={0.2}>
               <div className="bg-white p-8 md:p-10 rounded-sm shadow-sm">
-                <h3 className="font-serif text-2xl mb-6">Kontaktní formulář</h3>
+                <h3 className="font-serif text-2xl mb-6">{t("Kontaktní formulář", "Contact Form")}</h3>
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -165,16 +166,16 @@ export default function KontaktPage() {
                     className="text-center py-12"
                   >
                     <div className="text-4xl mb-4">✓</div>
-                    <h4 className="font-serif text-xl mb-2">Děkuji!</h4>
+                    <h4 className="font-serif text-xl mb-2">{t("Děkuji!", "Thank you!")}</h4>
                     <p className="text-warm-500">
-                      Zpráva byla odeslána. Ozvu se vám co nejdříve.
+                      {t("Zpráva byla odeslána. Ozvu se vám co nejdříve.", "Your message has been sent. I'll get back to you as soon as possible.")}
                     </p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
                       <label className="block text-sm text-warm-500 mb-1">
-                        Jméno *
+                        {t("Jméno *", "Name *")}
                       </label>
                       <input
                         type="text"
@@ -184,12 +185,12 @@ export default function KontaktPage() {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         className="w-full px-4 py-3 border border-warm-200 rounded-sm focus:outline-none focus:border-brand transition-colors bg-warm-50"
-                        placeholder="Vaše jméno"
+                        placeholder={t("Vaše jméno", "Your name")}
                       />
                     </div>
                     <div>
                       <label className="block text-sm text-warm-500 mb-1">
-                        Email *
+                        {t("Email *", "Email *")}
                       </label>
                       <input
                         type="email"
@@ -219,7 +220,7 @@ export default function KontaktPage() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm text-warm-500 mb-1">
-                          Datum svatby
+                          {t("Datum svatby", "Wedding date")}
                         </label>
                         <input
                           type="date"
@@ -232,7 +233,7 @@ export default function KontaktPage() {
                       </div>
                       <div>
                         <label className="block text-sm text-warm-500 mb-1">
-                          Místo
+                          {t("Místo", "Venue")}
                         </label>
                         <input
                           type="text"
@@ -241,13 +242,13 @@ export default function KontaktPage() {
                             setFormData({ ...formData, venue: e.target.value })
                           }
                           className="w-full px-4 py-3 border border-warm-200 rounded-sm focus:outline-none focus:border-brand transition-colors bg-warm-50"
-                          placeholder="Svatební místo"
+                          placeholder={t("Svatební místo", "Wedding venue")}
                         />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm text-warm-500 mb-1">
-                        Zpráva *
+                        {t("Zpráva *", "Message *")}
                       </label>
                       <textarea
                         required
@@ -257,14 +258,14 @@ export default function KontaktPage() {
                           setFormData({ ...formData, message: e.target.value })
                         }
                         className="w-full px-4 py-3 border border-warm-200 rounded-sm focus:outline-none focus:border-brand transition-colors bg-warm-50 resize-none"
-                        placeholder="Napište mi o vaší svatbě, focení, nebo čemkoliv..."
+                        placeholder={t("Napište mi o vaší svatbě, focení, nebo čemkoliv...", "Tell me about your wedding, photoshoot, or anything...")}
                       />
                     </div>
                     <button
                       type="submit"
                       className="w-full rounded-full bg-warm-800 text-white py-4 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
                     >
-                      Odeslat
+                      {t("Odeslat", "Send")}
                     </button>
                   </form>
                 )}

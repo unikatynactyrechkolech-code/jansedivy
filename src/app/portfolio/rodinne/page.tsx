@@ -3,50 +3,61 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/AnimatedElements";
+import { useLanguage } from "@/context/LanguageContext";
 
-const packages = [
-  {
-    title: "U vás doma, nebo venku",
-    description:
-      "Nejčastější volba klientů. Zachytím vaši domácí atmosféru, nebo vyrazíme ven. S výběrem vhodné lokace vám rád poradím.",
-    features: ["1 hodina focení", "60+ fotek", "Odevzdání do 14 dnů", "On-line galerie"],
-    price: "4 500 Kč",
-  },
-  {
-    title: "Focení ve studiu",
-    description:
-      "Pro ty, co chtějí studiový vibe. Doporučím vám skvělé studio s parádním světlem. V zimě ideální volba.",
-    features: [
-      "1 hodina focení",
-      "60+ fotek",
-      "Odevzdání do 14 dnů",
-      "On-line galerie",
-      "Pronájem studia zvlášť (~1000 Kč/h)",
-    ],
-    price: "4 500 Kč + studio",
-  },
-  {
-    title: "Váš rodinný den",
-    description:
-      "Zachytím neobyčejné chvíle vašeho běžného dne – vaření, hry, procházky. Rodinná reportáž na věky.",
-    features: ["3 hodiny focení", "150+ fotek", "Odevzdání do 14 dnů", "On-line galerie"],
-    price: "9 000 Kč",
-    highlight: true,
-  },
-];
 
-const faq = [
-  {
-    q: "Proč bychom si měli vybrat právě tebe?",
-    a: "Protože se mnou je focení pohoda a zábava. Nenutím nikoho do připravených póz a všechno nechávám plynout. Mám s focením rodin 10 let zkušeností a nic mě nepřekvapí. Umím při focení vás i děti uvolnit a rozesmát.",
-  },
-  {
-    q: "Platí se k focení i náklady na dopravu?",
-    a: "Pokud budeme fotit v Praze nebo v jejím okolí, doprava je zdarma. Jestli vyhovuje, abych zajel někam dál, není problém, auto mám. Náklady na palivo pak domluvíme individuálně.",
-  },
-];
 
 export default function RodinnePage() {
+  const { t } = useLanguage();
+
+  const packages = [
+    {
+      title: t("U vás doma, nebo venku", "At your home or outdoors"),
+      description: t(
+        "Nejčastější volba klientů. Zachytím vaši domácí atmosféru, nebo vyrazíme ven. S výběrem vhodné lokace vám rád poradím.",
+        "The most popular choice. I'll capture your home atmosphere, or we'll go outside. I'll gladly help with location selection."
+      ),
+      features: [t("1 hodina focení", "1 hour session"), t("60+ fotek", "60+ photos"), t("Odevzdání do 14 dnů", "Delivery within 14 days"), t("On-line galerie", "Online gallery")],
+      price: "4 500 Kč",
+    },
+    {
+      title: t("Focení ve studiu", "Studio session"),
+      description: t(
+        "Pro ty, co chtějí studiový vibe. Doporučím vám skvělé studio s parádním světlem. V zimě ideální volba.",
+        "For those who want a studio vibe. I'll recommend a great studio with beautiful light. Perfect for winter."
+      ),
+      features: [
+        t("1 hodina focení", "1 hour session"),
+        t("60+ fotek", "60+ photos"),
+        t("Odevzdání do 14 dnů", "Delivery within 14 days"),
+        t("On-line galerie", "Online gallery"),
+        t("Pronájem studia zvlášť (~1000 Kč/h)", "Studio rental separate (~1000 CZK/h)"),
+      ],
+      price: t("4 500 Kč + studio", "4 500 CZK + studio"),
+    },
+    {
+      title: t("Váš rodinný den", "Your family day"),
+      description: t(
+        "Zachytím neobyčejné chvíle vašeho běžného dne – vaření, hry, procházky. Rodinná reportáž na věky.",
+        "I'll capture the extraordinary moments of your ordinary day – cooking, playing, walks. A family reportage for eternity."
+      ),
+      features: [t("3 hodiny focení", "3 hour session"), t("150+ fotek", "150+ photos"), t("Odevzdání do 14 dnů", "Delivery within 14 days"), t("On-line galerie", "Online gallery")],
+      price: "9 000 Kč",
+      highlight: true,
+    },
+  ];
+
+  const faq = [
+    {
+      q: t("Proč bychom si měli vybrat právě tebe?", "Why should we choose you?"),
+      a: t("Protože se mnou je focení pohoda a zábava. Nenutím nikoho do připravených póz a všechno nechávám plynout. Mám s focením rodin 10 let zkušeností a nic mě nepřekvapí. Umím při focení vás i děti uvolnit a rozesmát.", "Because with me, the shoot is fun and relaxed. I don't force anyone into prepared poses and let everything flow. I have 10 years of experience photographing families and nothing surprises me. I know how to help you and your kids relax and laugh."),
+    },
+    {
+      q: t("Platí se k focení i náklady na dopravu?", "Are there any travel costs?"),
+      a: t("Pokud budeme fotit v Praze nebo v jejím okolí, doprava je zdarma. Jestli vyhovuje, abych zajel někam dál, není problém, auto mám. Náklady na palivo pak domluvíme individuálně.", "If we're shooting in Prague or nearby, transportation is free. If you need me to travel further, no problem – I have a car. Fuel costs are arranged individually."),
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -63,14 +74,14 @@ export default function RodinnePage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-6">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-white/80 mb-4 text-shadow-sm">
-              Rodinný fotograf Praha
+              {t("Rodinný fotograf Praha", "Family Photographer Prague")}
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <h1 className="font-serif text-4xl md:text-6xl leading-tight text-shadow-hero">
-              Pojďme si focení
+              {t("Pojďme si focení", "Let's enjoy")}
               <br />
-              <span className="italic">hlavně užít</span>
+              <span className="italic">{t("hlavně užít", "the session")}</span>
             </h1>
           </FadeIn>
         </div>
@@ -83,24 +94,20 @@ export default function RodinnePage() {
             <div>
               <FadeIn>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-6">
-                  Buďte sví.
+                  {t("Buďte sví.", "Be yourselves.")}
                   <br />
-                  Bavte se.{" "}
-                  <span className="italic text-brand">Užívejte si.</span>
+                  {t("Bavte se.", "Have fun.")}{" "}
+                  <span className="italic text-brand">{t("Užívejte si.", "Enjoy it.")}</span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <p className="text-warm-600 leading-relaxed mb-6 text-lg font-medium">
-                  To je můj přístup k rodinnému focení – hlavně ať je to zábava.
-                  Když si focení užíváte, můžu zachytit dokonalé momentky.
+                  {t("To je můj přístup k rodinnému focení – hlavně ať je to zábava. Když si focení užíváte, můžu zachytit dokonalé momentky.", "That's my approach to family photography – above all, it should be fun. When you enjoy the session, I can capture perfect candid moments.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <p className="text-warm-600 leading-relaxed mb-8">
-                  Zapomeňme na zajeté standardy focení dětí. Asi proto, že i já
-                  mám dítě, fotím rodiny strašně rád. Všechno od těhotenství až
-                  po divoké běsnění sourozenců na hřišti. A mám s tím už opravdu
-                  hodně zkušeností.
+                  {t("Zapomeňme na zajeté standardy focení dětí. Asi proto, že i já mám dítě, fotím rodiny strašně rád. Všechno od těhotenství až po divoké běsnění sourozenců na hřišti. A mám s tím už opravdu hodně zkušeností.", "Let's forget the old standards of kids photography. Maybe because I have a child myself, I love photographing families. Everything from pregnancy to wild sibling play at the park. And I have a lot of experience with it.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.3}>
@@ -146,9 +153,9 @@ export default function RodinnePage() {
           <div className="text-center mb-16">
             <FadeIn>
               <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-                Rodinné balíčky
+                {t("Rodinné balíčky", "Family packages")}
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl">Co vám sedí nejlíp?</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">{t("Co vám sedí nejlíp?", "What suits you best?")}</h2>
             </FadeIn>
           </div>
 
@@ -162,7 +169,7 @@ export default function RodinnePage() {
                 >
                   {pkg.highlight && (
                     <span className="text-xs tracking-wider uppercase text-brand font-medium mb-4">
-                      Nejoblíbenější
+                      {t("Nejoblíbenější", "Most popular")}
                     </span>
                   )}
                   <h3 className="font-serif text-xl mb-3">{pkg.title}</h3>
@@ -214,7 +221,7 @@ export default function RodinnePage() {
         <div className="max-w-3xl mx-auto">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl text-center mb-12">
-              Časté dotazy
+              {t("Časté dotazy", "FAQ")}
             </h2>
           </FadeIn>
           <div className="space-y-6">
@@ -237,11 +244,10 @@ export default function RodinnePage() {
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl mb-4">
-              Tak pojďme do toho
+              {t("Tak pojďme do toho", "Let's get started")}
             </h2>
             <p className="text-warm-600 mb-8">
-              Nejdřív mi prosím napište zprávu. Domluvíme termín a poradím vám s
-              výběrem místa i oblečení.
+              {t("Nejdřív mi prosím napište zprávu. Domluvíme termín a poradím vám s výběrem místa i oblečení.", "Please send me a message first. We'll agree on a date and I'll advise you on location and outfits.")}
             </p>
             <Link
               href="/kontakt"

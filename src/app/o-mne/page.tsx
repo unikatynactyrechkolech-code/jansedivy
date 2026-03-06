@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn, ParallaxImage } from "@/components/AnimatedElements";
+import { useLanguage } from "@/context/LanguageContext";
 
 const venues = [
   { name: "Lake Como", location: "Itálie, Villa Geno", href: "https://www.jan-sedivy.com/svatba-lake-como-italie-svatebni-fotograf-jan-sedivy/" },
@@ -31,6 +32,8 @@ const partners = [
 ];
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero */}
@@ -47,11 +50,11 @@ export default function AboutPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-6">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-white/80 mb-4 text-shadow-sm">
-              Těší mě
+              {t("Těší mě", "Nice to meet you")}
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h1 className="font-serif text-5xl md:text-7xl text-shadow-hero">jsem Honza</h1>
+            <h1 className="font-serif text-5xl md:text-7xl text-shadow-hero">{t("jsem Honza", "I'm Honza")}</h1>
           </FadeIn>
         </div>
       </section>
@@ -63,37 +66,29 @@ export default function AboutPage() {
             <div>
               <FadeIn>
                 <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-                  Nenápadný dokumentarista
+                  {t("Nenápadný dokumentarista", "Unobtrusive documentarist")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-8">
-                  Táta, hudebník
+                  {t("Táta, hudebník", "Dad, musician")}
                   <br />
-                  <span className="italic">a taky trochu sportovec</span>
+                  <span className="italic">{t("a taky trochu sportovec", "and a bit of an athlete too")}</span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <div className="space-y-5 text-warm-600 leading-relaxed">
                   <p>
-                    V pražském vydavatelství jsem měl rozjetou úspěšnou kariéru
-                    šéfredaktora. Ale dal jsem přednost své největší vášni –
-                    svatebnímu focení.
+                    {t("V pražském vydavatelství jsem měl rozjetou úspěšnou kariéru šéfredaktora. Ale dal jsem přednost své největší vášni – svatebnímu focení.", "I had a successful career as an editor-in-chief at a Prague publishing house. But I chose my greatest passion – wedding photography.")}
                   </p>
                   <p>
-                    Mým největším koníčkem je hudba. Hraju na kytaru, občas
-                    dokonce i na svatbě. Pravidelně vystupujeme s mou přítelkyní
-                    zpěvačkou v několika pražských klubech.
+                    {t("Mým největším koníčkem je hudba. Hraju na kytaru, občas dokonce i na svatbě. Pravidelně vystupujeme s mou přítelkyní zpěvačkou v několika pražských klubech.", "My biggest hobby is music. I play guitar, sometimes even at weddings. My girlfriend, a singer, and I regularly perform at several Prague clubs.")}
                   </p>
                   <p>
-                    Taky mě baví sport, nejvíc běh a posilování. Dvakrát jsem si
-                    střihnul maraton. A když se můj syn Toník dal na fotbal, i já
-                    si ten sport zamiloval.
+                    {t("Taky mě baví sport, nejvíc běh a posilování. Dvakrát jsem si střihnul maraton. A když se můj syn Toník dal na fotbal, i já si ten sport zamiloval.", "I also enjoy sports, especially running and working out. I've run two marathons. And when my son Toník took up football, I fell in love with the sport too.")}
                   </p>
                   <p>
-                    Na vaší svatbě chci být spíš kamarád, ne cizinec, co by vás
-                    při intimních chvílích rušil. Proto vás před ní zvu do mé
-                    oblíbené kavárny.
+                    {t("Na vaší svatbě chci být spíš kamarád, ne cizinec, co by vás při intimních chvílích rušil. Proto vás před ní zvu do mé oblíbené kavárny.", "At your wedding, I want to be more like a friend, not a stranger who would disturb your intimate moments. That's why I invite you to my favorite café beforehand.")}
                   </p>
                 </div>
               </FadeIn>
@@ -102,7 +97,7 @@ export default function AboutPage() {
                   href="/kontakt"
                   className="inline-block mt-8 rounded-full bg-warm-800 text-white px-8 py-3 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
                 >
-                  Pojďme na kafe
+                  {t("Pojďme na kafe", "Let's grab a coffee")}
                 </Link>
               </FadeIn>
             </div>
@@ -129,12 +124,12 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4 text-center">
-              Co o mně říkají
+              {t("Co o mně říkají", "What they say about me")}
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h2 className="font-serif text-3xl md:text-4xl text-center mb-16">
-              Milá slova klientů
+              {t("Milá slova klientů", "Kind words from clients")}
             </h2>
           </FadeIn>
           <div className="grid md:grid-cols-2 gap-8">
@@ -160,11 +155,11 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <FadeIn>
               <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-                Má oblíbená svatební místa
+                {t("Má oblíbená svatební místa", "My favorite wedding venues")}
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="font-serif text-3xl md:text-4xl">Kde jsem už fotil</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">{t("Kde jsem už fotil", "Where I've photographed")}</h2>
             </FadeIn>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -210,16 +205,13 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-              Spolupráce
+              {t("Spolupráce", "Partners")}
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl mb-4">Moji partneři</h2>
+            <h2 className="font-serif text-3xl md:text-4xl mb-4">{t("Moji partneři", "My Partners")}</h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="text-warm-600 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Za řadu let se mi povedlo navázat spolupráci s mnoha skvělými
-              kolegy. Díky partnerství nabízím klientům špičkové fotoknihy,
-              on-line galerie a další výhody. Už téměř deset let fotím na profi
-              techniku Fujifilm.
+              {t("Za řadu let se mi povedlo navázat spolupráci s mnoha skvělými kolegy. Díky partnerství nabízím klientům špičkové fotoknihy, on-line galerie a další výhody. Už téměř deset let fotím na profi techniku Fujifilm.", "Over the years, I've partnered with many great colleagues. Thanks to these partnerships, I offer clients top-quality photo books, online galleries, and other benefits. I've been shooting with professional Fujifilm equipment for nearly a decade.")}
             </p>
           </FadeIn>
           <div className="flex flex-wrap justify-center gap-6">
@@ -244,10 +236,10 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-              Jdeme do toho?
+              {t("Jdeme do toho?", "Shall we do this?")}
             </p>
             <h2 className="font-serif text-3xl md:text-5xl mb-8">
-              A teď se rád něco dozvím zas já o vás
+              {t("A teď se rád něco dozvím zas já o vás", "Now I'd love to learn something about you")}
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -255,7 +247,7 @@ export default function AboutPage() {
               href="/kontakt"
               className="inline-block rounded-full bg-warm-800 text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
             >
-              Pojďme spolupracovat
+              {t("Pojďme spolupracovat", "Let's work together")}
             </Link>
           </FadeIn>
         </div>

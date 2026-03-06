@@ -4,29 +4,31 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-
-const navLinks = [
-  { href: "/", label: "Domů" },
-  { href: "/o-mne", label: "O mně" },
-  {
-    href: "/portfolio",
-    label: "Portfolio",
-    submenu: [
-      { href: "/portfolio/svatebni", label: "Svatební" },
-      { href: "/portfolio/predsvatebni", label: "Předsvatební" },
-      { href: "/portfolio/rodinne", label: "Rodinné" },
-    ],
-  },
-  { href: "/analog", label: "Analog" },
-  { href: "/blog", label: "Blog" },
-  { href: "/kontakt", label: "Kontakt" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [portfolioOpen, setPortfolioOpen] = useState(false);
   const pathname = usePathname();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { href: "/", label: t("Domů", "Home") },
+    { href: "/o-mne", label: t("O mně", "About") },
+    {
+      href: "/portfolio",
+      label: "Portfolio",
+      submenu: [
+        { href: "/portfolio/svatebni", label: t("Svatební", "Weddings") },
+        { href: "/portfolio/predsvatebni", label: t("Předsvatební", "Pre-wedding") },
+        { href: "/portfolio/rodinne", label: t("Rodinné", "Family") },
+      ],
+    },
+    { href: "/analog", label: t("Analog", "Film") },
+    { href: "/blog", label: "Blog" },
+    { href: "/kontakt", label: t("Kontakt", "Contact") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -51,15 +53,11 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="group">
-            <h1
-              className="font-serif text-lg md:text-xl tracking-wide transition-colors duration-300 text-warm-900"
-            >
+            <h1 className="font-serif text-lg md:text-xl tracking-wide transition-colors duration-300 text-warm-900">
               JAN ŠEDIVÝ
             </h1>
-            <span
-              className="text-[9px] tracking-[0.3em] uppercase transition-colors duration-300 text-warm-500"
-            >
-              Svatební fotograf
+            <span className="text-[9px] tracking-[0.3em] uppercase transition-colors duration-300 text-warm-500">
+              {t("Svatební fotograf", "Wedding Photographer")}
             </span>
           </Link>
 
@@ -111,27 +109,95 @@ export default function Navigation() {
                 )}
               </div>
             ))}
+
+            {/* Language Switcher */}
+            <button
+              onClick={() => setLang(lang === "cs" ? "en" : "cs")}
+              className="flex items-center gap-1.5 text-xs tracking-wider uppercase text-warm-500 hover:text-brand transition-colors duration-300 ml-2 border border-warm-200 rounded-full px-3 py-1.5 hover:border-brand"
+              aria-label={lang === "cs" ? "Switch to English" : "Přepnout do češtiny"}
+              title={lang === "cs" ? "Switch to English" : "Přepnout do češtiny"}
+            >
+              {lang === "cs" ? (
+                <>
+                  <svg className="w-4 h-3 rounded-[2px] overflow-hidden" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                    <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+                    <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+                    <g clipPath="url(#s)">
+                      <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+                      <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t)" stroke="#C8102E" strokeWidth="4"/>
+                      <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+                      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+                    </g>
+                  </svg>
+                  <span>EN</span>
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-3 rounded-[2px] overflow-hidden" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="20" fill="#fff"/>
+                    <rect y="20" width="60" height="20" fill="#D7141A"/>
+                    <polygon points="0,0 30,20 0,40" fill="#11457E"/>
+                  </svg>
+                  <span>CZ</span>
+                </>
+              )}
+            </button>
           </nav>
 
-          {/* Mobile Hamburger */}
-          <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2 z-50"
-            aria-label="Menu"
-          >
-            <motion.span
-              animate={isMobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-warm-800"
-            />
-            <motion.span
-              animate={isMobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-5 h-0.5 bg-warm-800"
-            />
-            <motion.span
-              animate={isMobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-warm-800"
-            />
-          </button>
+          {/* Mobile: Language + Hamburger */}
+          <div className="lg:hidden flex items-center gap-3">
+            <button
+              onClick={() => setLang(lang === "cs" ? "en" : "cs")}
+              className="flex items-center gap-1 text-[10px] tracking-wider uppercase text-warm-500 border border-warm-200 rounded-full px-2.5 py-1 hover:border-brand transition-colors"
+              aria-label={lang === "cs" ? "Switch to English" : "Přepnout do češtiny"}
+            >
+              {lang === "cs" ? (
+                <>
+                  <svg className="w-3.5 h-2.5 rounded-[1px]" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                    <clipPath id="sm"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+                    <clipPath id="tm"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+                    <g clipPath="url(#sm)">
+                      <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+                      <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#tm)" stroke="#C8102E" strokeWidth="4"/>
+                      <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+                      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+                    </g>
+                  </svg>
+                  EN
+                </>
+              ) : (
+                <>
+                  <svg className="w-3.5 h-2.5 rounded-[1px]" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="20" fill="#fff"/>
+                    <rect y="20" width="60" height="20" fill="#D7141A"/>
+                    <polygon points="0,0 30,20 0,40" fill="#11457E"/>
+                  </svg>
+                  CZ
+                </>
+              )}
+            </button>
+
+            <button
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              className="flex flex-col gap-1.5 p-2 z-50"
+              aria-label="Menu"
+            >
+              <motion.span
+                animate={isMobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                className="block w-5 h-0.5 bg-warm-800"
+              />
+              <motion.span
+                animate={isMobileOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="block w-5 h-0.5 bg-warm-800"
+              />
+              <motion.span
+                animate={isMobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                className="block w-5 h-0.5 bg-warm-800"
+              />
+            </button>
+          </div>
         </div>
       </motion.header>
 

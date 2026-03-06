@@ -3,8 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/AnimatedElements";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PredsvatebniPage() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero */}
@@ -21,14 +24,14 @@ export default function PredsvatebniPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-6">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-white/80 mb-4 text-shadow-sm">
-              Předsvatebko & Zásnuby
+              {t("Předsvatebko & Zásnuby", "Pre-wedding & Engagement")}
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <h1 className="font-serif text-4xl md:text-6xl leading-tight text-shadow-hero">
-              Nejde o pózy.
+              {t("Nejde o pózy.", "It's not about poses.")}
               <br />
-              <span className="italic">Jde o vás dva.</span>
+              <span className="italic">{t("Jde o vás dva.", "It's about you two.")}</span>
             </h1>
           </FadeIn>
         </div>
@@ -41,26 +44,21 @@ export default function PredsvatebniPage() {
             <div>
               <FadeIn>
                 <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-6">
-                  Smích, doteky, emoce
+                  {t("Smích, doteky, emoce", "Laughter, touch, emotions")}
                   <br />
                   <span className="italic text-brand">
-                    a fotky, ve kterých se poznáte
+                    {t("a fotky, ve kterých se poznáte", "and photos where you recognize yourselves")}
                   </span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <p className="text-warm-600 leading-relaxed mb-6">
-                  Při předsvatebním focení se skvěle poznáme a sladíme. Zvyknete
-                  si na mě a na můj přístup. A taky budete mít další fotky, které
-                  vás budou bavit i po letech a které můžete využít jako dekoraci
-                  na svatbě nebo do svatebních tiskovin.
+                  {t("Při předsvatebním focení se skvěle poznáme a sladíme. Zvyknete si na mě a na můj přístup. A taky budete mít další fotky, které vás budou bavit i po letech a které můžete využít jako dekoraci na svatbě nebo do svatebních tiskovin.", "During the pre-wedding shoot, we get to know each other. You'll get used to me and my approach. Plus, you'll have more photos to enjoy for years and use as wedding decorations or stationery.")}
                 </p>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <p className="text-warm-600 leading-relaxed">
-                  Kromě předsvatebního a párového focení fotím i tajné žádosti o
-                  ruku. Pomůžu s výběrem místa i průběhem, aby žádost působila
-                  přirozeně a vy jste si ten okamžik mohli naplno užít.
+                  {t("Kromě předsvatebního a párového focení fotím i tajné žádosti o ruku. Pomůžu s výběrem místa i průběhem, aby žádost působila přirozeně a vy jste si ten okamžik mohli naplno užít.", "Besides pre-wedding and couples sessions, I also photograph secret proposals. I'll help with location and planning so it feels natural and you can fully enjoy the moment.")}
                 </p>
               </FadeIn>
             </div>
@@ -97,7 +95,7 @@ export default function PredsvatebniPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
-              <h2 className="font-serif text-3xl md:text-4xl">Vaše energie. Vaše láska.</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">{t("Vaše energie. Vaše láska.", "Your energy. Your love.")}</h2>
             </FadeIn>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
@@ -105,26 +103,24 @@ export default function PredsvatebniPage() {
             <FadeIn>
               <div className="bg-white p-10 rounded-sm shadow-sm">
                 <h3 className="font-serif text-2xl mb-4">
-                  Předsvatební a párové focení
+                  {t("Předsvatební a párové focení", "Pre-wedding & couples session")}
                 </h3>
                 <p className="text-warm-600 leading-relaxed mb-6">
-                  Pro focení je super vybrat lokaci, ke které máte vztah. Může
-                  jít o místo, kde jste se poznali. Hlavní je uvolněná atmosféra
-                  a dobrá nálada. Párové focení rád udělám všem zájemcům.
+                  {t("Pro focení je super vybrat lokaci, ke které máte vztah. Může jít o místo, kde jste se poznali. Hlavní je uvolněná atmosféra a dobrá nálada. Párové focení rád udělám všem zájemcům.", "It's great to pick a location you have a connection to. It could be where you first met. The key is a relaxed atmosphere and good vibes. I'm happy to do couples sessions for everyone.")}
                 </p>
                 <div className="border-t border-warm-200 pt-6 mt-6">
                   <p className="font-serif text-3xl text-brand mb-2">4 500 Kč</p>
                   <ul className="text-sm text-warm-500 space-y-1">
-                    <li>1 hodina focení</li>
-                    <li>60+ fotek</li>
-                    <li>On-line galerie</li>
+                    <li>{t("1 hodina focení", "1 hour session")}</li>
+                    <li>{t("60+ fotek", "60+ photos")}</li>
+                    <li>{t("On-line galerie", "Online gallery")}</li>
                   </ul>
                 </div>
                 <Link
                   href="/kontakt"
                   className="inline-block mt-6 rounded-full bg-warm-800 text-white px-8 py-3 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
                 >
-                  Rezervovat
+                  {t("Rezervovat", "Book now")}
                 </Link>
               </div>
             </FadeIn>
@@ -132,21 +128,18 @@ export default function PredsvatebniPage() {
             {/* Tajná žádost */}
             <FadeIn delay={0.15}>
               <div className="bg-white p-10 rounded-sm shadow-sm">
-                <h3 className="font-serif text-2xl mb-4">Tajná žádost o ruku</h3>
+                <h3 className="font-serif text-2xl mb-4">{t("Tajná žádost o ruku", "Secret Proposal")}</h3>
                 <p className="text-warm-600 leading-relaxed mb-6">
-                  Plánuješ tajnou žádost o ruku? Napiš mi a já ti rád se vším
-                  poradím. Pojďme si dát on-line call, řeknu ti i tipy na skvělá
-                  místa. Pak budu na místě připravený zvěčnit vše na fotkách
-                  plných emocí.
+                  {t("Plánuješ tajnou žádost o ruku? Napiš mi a já ti rád se vším poradím. Pojďme si dát on-line call, řeknu ti i tipy na skvělá místa. Pak budu na místě připravený zvěčnit vše na fotkách plných emocí.", "Planning a secret proposal? Write me and I'll be happy to help with everything. Let's have an online call – I'll share tips on great locations. Then I'll be on-site ready to capture everything in emotion-filled photos.")}
                 </p>
                 <div className="border-t border-warm-200 pt-6 mt-6">
                   <p className="font-serif text-3xl text-brand mb-2">
                     od 6 000 Kč
                   </p>
                   <ul className="text-sm text-warm-500 space-y-1">
-                    <li>On-line call s přípravou</li>
-                    <li>60+ fotek</li>
-                    <li>On-line galerie</li>
+                    <li>{t("On-line call s přípravou", "Online planning call")}</li>
+                    <li>{t("60+ fotek", "60+ photos")}</li>
+                    <li>{t("On-line galerie", "Online gallery")}</li>
                   </ul>
                 </div>
                 <Link
@@ -178,11 +171,10 @@ export default function PredsvatebniPage() {
               </div>
             </div>
             <blockquote className="font-serif text-xl md:text-2xl italic text-warm-700 leading-relaxed mb-6">
-              „Honza je skvělý fotograf a především veliký sympaťák. Cítili jsme
-              se přirozeně, nebylo nic nuceného a nepříjemného."
+              „{t("Honza je skvělý fotograf a především veliký sympaťák. Cítili jsme se přirozeně, nebylo nic nuceného a nepříjemného.", "Honza is a great photographer and above all a really likeable guy. We felt natural, nothing was forced or uncomfortable.")}"
             </blockquote>
             <p className="text-warm-500 text-sm tracking-wider uppercase">
-              Lucie Zavřelová — Nevěsta
+              {t("Lucie Zavřelová — Nevěsta", "Lucie Zavřelová — Bride")}
             </p>
           </FadeIn>
         </div>
@@ -193,7 +185,7 @@ export default function PredsvatebniPage() {
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
             <h2 className="font-serif text-3xl md:text-4xl mb-8">
-              Pojďme do toho společně
+              {t("Pojďme do toho společně", "Let's do this together")}
             </h2>
             <Link
               href="/kontakt"

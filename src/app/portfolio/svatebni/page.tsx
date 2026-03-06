@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/AnimatedElements";
+import { useLanguage } from "@/context/LanguageContext";
 
 const weddings = [
   { title: "Občanská plovárna", couple: "Marina & Berto", href: "https://www.jan-sedivy.com/svatba-obcanska-plovarna-praha/", image: "https://www.jan-sedivy.com/wp-content/uploads/2025/11/DSCF5498-768x512.jpg" },
@@ -17,13 +18,15 @@ const weddings = [
 ];
 
 export default function SvatebniPortfolioPage() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero */}
       <section className="relative h-[60vh] overflow-hidden">
         <Image
           src="https://www.jan-sedivy.com/wp-content/uploads/2025/12/DSCF1300-2.jpg"
-          alt="Svatební příběhy"
+          alt={t("Svatební příběhy", "Wedding Stories")}
           fill
           className="object-cover object-[center_25%]"
           priority
@@ -37,7 +40,7 @@ export default function SvatebniPortfolioPage() {
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h1 className="font-serif text-5xl md:text-7xl text-shadow-hero">Svatební příběhy</h1>
+            <h1 className="font-serif text-5xl md:text-7xl text-shadow-hero">{t("Svatební příběhy", "Wedding Stories")}</h1>
           </FadeIn>
         </div>
       </section>
@@ -86,16 +89,16 @@ export default function SvatebniPortfolioPage() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <p className="text-sm tracking-[0.3em] uppercase text-warm-500 mb-4">
-              Další galerie najdete
+              {t("Další galerie najdete", "Find more galleries")}
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl mb-8">Na mém blogu</h2>
+            <h2 className="font-serif text-3xl md:text-4xl mb-8">{t("Na mém blogu", "On my blog")}</h2>
           </FadeIn>
           <FadeIn delay={0.2}>
             <Link
               href="/blog"
               className="inline-block rounded-full bg-warm-800 text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-warm-700 transition-colors"
             >
-              Pročíst blog
+              {t("Pročíst blog", "Read the blog")}
             </Link>
           </FadeIn>
         </div>

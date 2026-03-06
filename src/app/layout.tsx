@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import CookieConsent from "@/components/CookieConsent";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -42,12 +43,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-stone-50 text-stone-900`}
       >
-        <Navigation />
-        <main>
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
-        <CookieConsent />
+        <LanguageProvider>
+          <Navigation />
+          <main>
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+          <CookieConsent />
+        </LanguageProvider>
       </body>
     </html>
   );
