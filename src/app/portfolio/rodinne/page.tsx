@@ -55,7 +55,7 @@ export default function RodinnePage() {
           src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/DSCF7392-2-e1770273575547.jpg"
           alt="Rodinné focení Praha"
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_25%]"
           priority
           unoptimized
         />

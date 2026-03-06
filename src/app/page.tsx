@@ -78,7 +78,7 @@ export default function Home() {
               src={heroImages[currentImage]}
               alt="Svatební fotograf Praha"
               fill
-              className="object-cover object-top"
+              className="object-cover object-[center_25%]"
               priority
               unoptimized
             />

@@ -13,7 +13,7 @@ export default function PredsvatebniPage() {
           src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/Svatebni-fotograf-praha_0747.jpg"
           alt="Předsvatební focení Praha"
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_25%]"
           priority
           unoptimized
         />

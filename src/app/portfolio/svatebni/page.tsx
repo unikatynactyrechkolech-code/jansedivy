@@ -25,7 +25,7 @@ export default function SvatebniPortfolioPage() {
           src="https://www.jan-sedivy.com/wp-content/uploads/2025/12/DSCF1300-2.jpg"
           alt="Svatební příběhy"
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_25%]"
           priority
           unoptimized
         />

@@ -30,7 +30,7 @@ export default function KontaktPage() {
           src="https://www.jan-sedivy.com/wp-content/uploads/2025/11/DSCF1415-scaled.jpg"
           alt="Kontakt"
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_25%]"
           priority
           unoptimized
         />

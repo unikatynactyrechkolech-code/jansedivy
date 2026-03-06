@@ -39,7 +39,7 @@ export default function AboutPage() {
           src="https://www.jan-sedivy.com/wp-content/uploads/2026/01/i-qm3VXhQ-X2-e1767891264545.jpg"
           alt="Jan Šedivý"
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_25%]"
           priority
           unoptimized
         />

@@ -55,7 +55,7 @@ export default function AnalogPage() {
             src="https://www.jan-sedivy.com/wp-content/uploads/2026/02/1svatba_zamek_ratmerice-1536x1018.webp"
             alt="Svatební focení na film"
             fill
-            className="object-cover object-top opacity-70"
+            className="object-cover object-[center_25%] opacity-70"
             priority
             unoptimized
           />
